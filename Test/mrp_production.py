@@ -1,9 +1,15 @@
+# -*- coding: utf-8 -*-
 
-from odoo import _, api, models
+import math
+from odoo import api, fields, models, _
+from odoo.addons import decimal_precision as dp
+from odoo.exceptions import UserError
+from datetime import datetime
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
+
 
 class MrpProduction(models.Model):
-    print("HELLO MOHANAD")
-    _inherit = "mrp.production"
+    _inherit = 'mrp.production'
 
     def action_generate_serial(self):
         self.ensure_one()
