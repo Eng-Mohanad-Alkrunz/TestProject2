@@ -1,0 +1,16 @@
+{
+    "name": "MOHANAD TEST",
+    "summary": "TEST MODULE ENTERPRISE",
+    "version": "1.0.0.0.0",
+    "author": "Mohanad Alkrunz",
+    "website": "https://www.terrabit.ro",
+    "category": "Manufacturing/Manufacturing",
+    "depends": ['product', 'stock', 'resource'],
+    "license": "LGPL-3",
+    "data": [],
+    "images": [],
+    "installable": True,
+    "application":True,
+    "development_status": "Mature",
+    "maintainers": ["dhongu"],
+}
