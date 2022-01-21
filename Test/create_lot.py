@@ -1,7 +1,7 @@
 
 from odoo import _, api, models
 
-class MRPOperationsInherit(models.Model):
+class MrpProduction(models.Model):
     _inherit = "mrp.production"
 
     def action_generate_serial(self):

@@ -5,7 +5,7 @@
     "author": "Mohanad Alkrunz",
     "website": "https://www.terrabit.ro",
     "category": "Manufacturing/Manufacturing",
-    "depends": ['product', 'stock', 'resource'],
+    'depends': ['base','product', 'stock', 'resource'],
     "license": "LGPL-3",
     "data": [],
     "images": [],
