@@ -2,6 +2,7 @@
 from odoo import _, api, models
 
 class MrpProduction(models.Model):
+    print("HELLO MOHANAD")
     _inherit = "mrp.production"
 
     def action_generate_serial(self):
