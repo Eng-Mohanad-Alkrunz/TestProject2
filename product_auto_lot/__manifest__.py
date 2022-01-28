@@ -17,7 +17,8 @@
         'views/mrp_workcenter.xml',
         'views/mrp_bom.xml',
         'views/stock_production_lot.xml',
-
+        'wizard/mrp_workorder_confirmation.xml',
+        'wizard/mrp_import_packages_wizard.xml',
 #         'report/stock_picking_lot_report.xml',
 #         'report/stock_picking_lot_standard_report.xml',
         'report/mrp_production_lot_report.xml',

@@ -1,0 +1,44 @@
+<odoo>
+
+	<record id="workorder_confirm_form" model="ir.ui.view">
+		<field name="name">Mrp Workorder Confirmation</field>
+		<field name="model">mrp.workorder.confirmation</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Confirm Production">
+				<p>
+					Are you sure you want to finish this workorder?
+				</p>
+				<group>
+					<group colspan="1">
+							<div class="oe_inline o_td_label">
+								<label for="qty_production" />
+							</div>
+							<field name="qty_production" nolabel="1"/>
+					</group>
+					<group colspan="1">
+							<div class="oe_inline o_td_label">
+								<label for="current_step" />
+							</div>
+							<field name="current_step" nolabel="1"/>
+					</group>
+				</group>
+				<footer>
+					<button name="button_finish" string="Finish Workorder" type="object" class="btn-primary"/>
+					<button string="CONTINUE WORKORDER" type="object" class="btn-secondary" special="cancel"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="workorder_confirmation_wizard" model="ir.actions.act_window">
+		<field name="name">Confirmation Messages</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">mrp.workorder.confirmation</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="mrp_batch_pallet_making.workorder_confirm_form"/>
+		<field name="target">new</field>
+	</record>
+	
+
+</odoo>
