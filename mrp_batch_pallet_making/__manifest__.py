@@ -6,7 +6,7 @@
     'author': 'PPTS [India] Pvt.Ltd.',
     'website': 'https://www.pptssolutions.com',
     'category': 'Manufacturing',
-    'depends': ['mrp', 'product', 'stock', 'resource', 'web', 'mrp_workorder_multi_lot'],
+    'depends': ['mrp', 'product', 'stock', 'resource', 'web'],
     'data': [
         'security/ir.model.access.csv',
         'views/web_backend.xml',
@@ -15,6 +15,7 @@
         'wizards/mrp_workorder_confirmation.xml',
         'wizards/mrp_import_packages_wizard.xml',
         'views/product.xml',
+        'views/stock_production_lot',
         'views/workorder_batch_ui.xml',
         'views/workorder_pallet_ui.xml',
         'views/workcenter.xml',
