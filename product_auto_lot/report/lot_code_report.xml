@@ -1,0 +1,78 @@
+<odoo>
+
+    <template id="product_auto_lot.report_lot_barcode_multipage">
+			 <t t-call="web.basic_layout">
+	            
+	                <div class="page">
+	                <t t-foreach="docs" t-as="o">
+	                  
+	                    <t>
+	                            <div class="oe_structure"/>
+	                            
+	                            
+	                            
+	                            <div class="row">
+	                                <div style="width:60%;" >
+	                                    <table class="table table-condensed" style="border-bottom: 0px solid white !important;width:100%;">
+	                                        <thead>
+	                                            <tr>
+	                                                <th>Product</th>
+	                                                <th>Lot/Serial Number</th>
+	                                            </tr>
+	                                        </thead>
+	                                        <tbody>
+	                                            <td>
+	                                               <span t-field="o.product_id.name"/>
+	                                            </td>
+	                                            <td>
+	                                                <span t-field="o.name"/>
+	                                            </td>
+	                                        </tbody>
+	                                    </table>
+	                                </div>
+	                                <div class="col-xs-4">
+	                                   
+	                                    
+	                                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)"
+                         style="max-height: 200px;" alt="Logo"/>
+	                                </div>
+	                            </div>
+	                            <div class="row">
+	                                <div class="col-xs-12 mt32">
+	                                    <table class="table table-condensed" style="border-bottom: 3px solid black !important;width:100%;"><thead><th> </th></thead></table>
+	                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 600, 100)" style="width:300px;height:50px"/>
+	                                    <p class="text-center" t-field="o.name"/>
+	                                </div>
+	                                
+	                               
+	                            </div>
+	 
+
+	                    </t>
+	                </t>
+	                </div>
+	            
+	        </t>
+
+    </template>
+
+    <!-- <report id="action_report_lot_barcode" model="stock.production.lot" report_type="qweb-pdf" name="mrp_batch_pallet_making.report_lot_barcode_multipage"
+     string="Lot BarCodes (multiple)" file="mrp_batch_pallet_making.report_lot_barcode_multipage"/> -->
+    
+     <record id="action_report_lot_barcode" model="ir.actions.report">
+            <field name="name">Lot BarCodes (multiple)</field>
+            <field name="model">stock.production.lot</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">mrp_batch_pallet_making.report_lot_barcode_multipage</field>
+            <field name="report_file">mrp_batch_pallet_making.report_lot_barcode_multipage</field>
+            <field name="print_report_name">('Lot BarCodes (multiple) - %s' % (object.name))</field>
+            <field name="binding_model_id" ref="stock.model_stock_production_lot"/>
+            <field name="binding_type">report</field>
+        </record>
+    
+    
+    
+    
+    
+
+</odoo>

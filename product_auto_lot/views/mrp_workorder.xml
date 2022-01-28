@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <!--  <record id="mrp_production_workcenter_form_view_inherit_multi_lot" model="ir.ui.view">
+        <field name="name">Add multiple lot codes to Workorder</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <field name="qty_producing" position="before">
+                <group>
+                    <field name="select_lot_ids" widget="many2many_tags" options="{'no_quick_create':True, 'no_create_edit':True, 'no_create': True, 'create_edit': False}" context="{'show_product_name': True, 'mrp_workorder': active_id, 'tree_view_ref': 'mrp_workorder_multi_lot.view_production_lot_tree_with_quantity_at_location' }" />
+                </group>
+                <button string="Auto Select" name="button_auto_select_lots" type="object" class="btn-primary" />
+            </field>
+            <xpath expr="//field[@name='qty_producing']/tree/field[@name='lot_id']" position="replace">
+                <field name="lot_id" domain="[(0,'=',1)]" options="{'no_quick_create':True, 'no_create_edit':True, 'no_create': True, 'create_edit': False}" context="{'default_product_id': product_id, 'mrp_workorder': active_id}"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="mrp_production_workorder_tree_editable_view_inherit_multi_lot" model="ir.ui.view">
+        <field name="name">Add multiple lot codes to Workorder</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_tree_editable_view"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                    <field name="select_lot_ids" widget="many2many_tags" options="{'no_quick_create':True, 'no_create_edit':True, 'no_create': True, 'create_edit': False}" context="{'show_product_name': True, 'mrp_workorder': active_id, 'tree_view_ref': 'mrp_workorder_multi_lot.view_production_lot_tree_with_quantity_at_location' }" />
+            </field>
+        </field>
+    </record> -->
+    
+    <record id="mrp_production_workcenter_form_view_inherit_multi_lot1" model="ir.ui.view">
+        <field name="name">Add multiple lot codes to Workorder</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <field name="qty_producing" position="before">
+            	<field name="raw_product_ids" invisible="1"/>
+            </field>
+            
+            <field name="finished_lot_id" position="replace"/>
+            <field name="qty_producing" position="replace"/>
+            
+            <page name="time_tracking" position="before">
+	            <page string="Current Production">
+	            <group>
+                        <group>
+                            <field name="qty_producing" string="Current Qty" attrs="{'readonly': ['|', ('product_tracking', '=', 'serial'), ('state', 'in', ('done', 'cancel'))]}"/>
+                            <field name="finished_lot_id" context="{'default_product_id': product_id}" attrs="{'invisible': [('product_tracking', '=', 'none')]}" groups="stock.group_production_lot"/>
+                        </group>
+                    </group>
+	<!-- <page string="Components" name="components"> -->
+	                            <field name="move_raw_ids"  >
+	                                <tree editable="bottom">
+	                                    <field name="product_id" force_save="1" required="1" />
+	                                    <field name="move_line_ids" invisible="1">
+	                                        <tree>
+	                                            <field name="lot_id" invisible="1"/>
+	                                            <field name="owner_id" invisible="1"/>
+	                                            <field name="package_id" invisible="1"/>
+	                                            <field name="result_package_id" invisible="1"/>
+	                                            <field name="location_id" invisible="1"/>
+	                                            <field name="location_dest_id" invisible="1"/>
+	                                            <field name="qty_done" invisible="1"/>
+	                                            <field name="product_id" invisible="1"/>
+	                                            <field name="product_uom_id" invisible="1"/>
+	                                            <field name="product_uom_qty" invisible="1"/>
+	                                            <field name="state" invisible="1"/>
+	                                            <field name="move_id" invisible="1"/>
+	                                            <field name="id" invisible="1"/>
+	                                        </tree>
+	                                    </field>
+	
+	                                    <field name="company_id" invisible="1"/>
+	                                    <field name="product_uom_category_id" invisible="1"/>
+	                                    <field name="name" invisible="1"/>
+	                                    <field name="allowed_operation_ids" invisible="1"/>
+	                                    <field name="unit_factor" invisible="1"/>
+	                                    <field name="date_deadline" invisible="1"/>
+	                                    <field name="date" invisible="1"/>
+	                                    <field name="additional" invisible="1"/>
+	                                    <field name="picking_type_id" invisible="1"/>
+	                                    <field name="has_tracking" invisible="1"/>
+	                                    <field name="operation_id" invisible="1"/>
+	                                    <field name="is_done" invisible="1"/>
+	                                    <field name="bom_line_id" invisible="1"/>
+	                                    <field name="sequence" invisible="1"/>
+	                                    <field name="location_id" invisible="1"/>
+	                                    <field name="warehouse_id" invisible="1"/>
+	                                    <field name="is_locked" invisible="1"/>
+<!--	                                    <field name="has_move_lines" invisible="1"/>-->
+	                                    <field name="location_dest_id" invisible="1"/>
+	                                    <field name="state" invisible="1" force_save="1"/>
+	                                    <field name="should_consume_qty" invisible="1"/>
+	                                    <field name="product_uom_qty" widget="mrp_should_consume" string="To Consume" width="1"/>
+	                                    <field name="product_type" invisible="1"/>
+	                                    <field name="product_qty" invisible="1" readonly="1"/>
+	                                    <field name="reserved_availability" invisible="1"/>
+	                                    <field name="forecast_expected_date" invisible="1"/>
+	                                    <field name="forecast_availability" string="Reserved" attrs="{'column_invisible': [('parent.state', 'in', ['pending', 'done'])]}" widget="forecast_widget"/>
+	                                    <field name="is_quantity_done_editable" invisible="1"/>
+	                                    <field name="quantity_done" string="Consumed" decoration-success="not is_done and (quantity_done - should_consume_qty == 0)" decoration-warning="not is_done and (quantity_done - should_consume_qty &gt; 0.0001)" attrs="{'column_invisible': [('parent.state', '=', 'pending')], 'readonly': [('show_details_visible', '=', True)]}"/>
+	                                    <field name="product_uom" attrs="{'readonly': [('state', '!=', 'draft')]}" options="{'no_open': True, 'no_create': True}" groups="uom.group_uom"/>
+	                                    <field name="show_details_visible" invisible="1"/>
+	                                    <field name="lot_ids" widget="many2many_tags" groups="stock.group_production_lot" attrs="{'invisible': ['|', '|', ('show_details_visible', '=', False), ('has_tracking', '!=', 'serial'), ('parent.state', '=', 'draft')]}" context="{'default_company_id': company_id, 'default_product_id': product_id}" domain="[('product_id','=',product_id)]"/>
+	                                    <button name="action_show_details" type="object" icon="fa-list" context="{'default_product_uom_qty': 0}" attrs="{'invisible': [('show_details_visible', '=', False)]}" options="{&quot;warn&quot;: true}"/>
+	                                </tree>
+	                            </field>
+	                        <!-- </page> -->
+	                    
+	                    
+	            </page>
+            </page>
+        </field>
+    </record>
+    
+</odoo>
