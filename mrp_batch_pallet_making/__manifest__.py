@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'Manufacturing - Pallet & Batch Making UI',
+    'version': '10.0.1.0.0',
+    'license': 'AGPL-3',
+    'author': 'PPTS [India] Pvt.Ltd.',
+    'website': 'https://www.pptssolutions.com',
+    'category': 'Manufacturing',
+    'depends': ['mrp', 'product', 'stock', 'resource', 'web', 'mrp_workorder_multi_lot'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/web_backend.xml',
+        'views/workorder_normal.xml',
+        'views/workcenter_dropdown_setting_ui.xml',
+        'wizards/mrp_workorder_confirmation.xml',
+        'wizards/mrp_import_packages_wizard.xml',
+        'views/product.xml',
+        'views/workorder_batch_ui.xml',
+        'views/workorder_pallet_ui.xml',
+        'views/workcenter.xml',
+        'views/mrp_routing.xml',
+        'views/mrp_production.xml',
+        'views/stock_location.xml',
+        'reports/lot_code_report.xml',
+    ],
+    'installable': True,
+    'application': True,
+}

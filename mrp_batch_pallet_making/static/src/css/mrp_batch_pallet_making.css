@@ -1,0 +1,100 @@
+.btn-big{
+   font-size: 30px !important;
+   width:250px  !important;
+   height:150px  !important;
+}
+
+.btn-right{
+    float:right !important;
+}
+
+.btn-left{
+    float:left !important;
+}
+
+.batch_info_box{
+    float:left !important;
+    margin: 10px 20px 0px 10px !important;
+    max-width: 550px !important;
+}
+
+.qty_producing, .qty_production {
+    margin-right: 10px;
+}
+
+.btn-lotcode{
+      font-size: 20px !important;
+}
+
+.current_step{
+    font-weight: 900;
+    font-size: 10em !important;
+    padding: 0px 20px 20px 20px !important;
+}
+
+.current_step_box{
+    float:right;
+    width: 350px  !important;
+    height: 300px  !important;
+    border: 1px solid #ccc;
+    margin: 10px 0px 20px 10px !important;
+    text-align: center !important;
+}
+
+.frm_batch, .frm_pallet {
+   font-size: 18px !important;
+}
+
+.workcenter{
+    font-size: 20px !important;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+    border-bottom:1px solid #ccc !important;
+    padding: 10px !important;
+}
+
+.select_lot{
+    font-size: 17px !important;
+}
+
+.scrollable {
+  /* height: 330px !important; */
+  /*overflow-y: scroll !important; */
+  width: 100% !important;
+  overflow-y: auto;
+  /* This height will leave overflowing items slightly ajar,
+     to allow users to see that there are more in the list. */
+  max-height: 336px !important;
+}
+
+.production{
+    border:1px solid #000 !important;
+    padding: 10px 20px !important;
+    font-size : 30px !important;
+    margin-bottom: 35px  !important;
+    font-weight: 900;
+}
+
+.product{
+     font-size : 22px !important;
+     margin-bottom: 5px  !important;
+}
+
+.qty_producing, .final_lot, .date_start{
+     font-size : 20px !important;
+     margin-bottom: 10px  !important;
+}
+
+.final_lot{
+    text-decoration: underline;
+    margin-right: 15px;
+}
+
+.lbl_title {
+    font-weight: 900 !important;
+    list-style-type: square !important;
+}
+
+.box-date_start_time .lbl_title{
+    color:#f96 !important;
+}

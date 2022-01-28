@@ -1,7 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_stock_picking_lot","stock.picking.lot all users","model_stock_picking_lot","stock.group_stock_user",1,1,1,1
-"access_stock_pallet_operation","stock.pallet.operation all users","model_stock_pallet_operation","stock.group_stock_user",1,1,1,1
-"access_mrp_workcenter_lot_wizard","mrp.workcenter.lot.wizard all users","model_mrp_workcenter_lot_wizard","stock.group_stock_user",1,1,1,1
-"access_mrp_workcenter_pallet_wizard","mrp.workcenter.pallet.wizard all users","model_mrp_workcenter_pallet_wizard","stock.group_stock_user",1,1,1,1
-"access_mrp_workcenter_pallet_pack_wizard","mrp.workcenter.pallet.pack.wizard all users","model_mrp_workcenter_pallet_pack_wizard","stock.group_stock_user",1,1,1,1
-"access_mrp_workcenter_pallet_unpack_wizard","mrp.workcenter.pallet.unpack.wizard all users","model_mrp_workcenter_pallet_unpack_wizard","stock.group_stock_user",1,1,1,1
