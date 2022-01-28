@@ -24,7 +24,7 @@
         'report/report_paperformat_data.xml',
         'report/report_stock_package.xml',
         'report/lot_code_report.xml',
-        'views/mrp_workorder.xml',
+        # 'views/mrp_workorder.xml',
         'views/mrp_production.xml',
         'views/stock_picking_type.xml',
         'views/stock_quant_package.xml',
