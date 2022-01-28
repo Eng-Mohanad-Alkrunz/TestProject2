@@ -5,7 +5,7 @@
         <field name="model">mrp.workorder</field>
         <field name="arch" type="xml">
             <form string="Production Workcenter" delete="0" create="0" class="frm_batch">
-                <field name="_barcode_scanned" widget="workorder_barcode_handler"/>
+<!--                <field name="_barcode_scanned" widget="workorder_barcode_handler"/>-->
                 <sheet>
                     <div style="background-color:#ffb3b3; border: #ff0303 1px solid; text-align: center; padding:10px; margin-bottom:10px;" attrs="{'invisible': [('skip_packing_rules', '=', False)]}">
                           Warning: This workorder is set to use Normal Workcenter Rules, and should not be completed using this view. Please go to the manufacturing order to open the workorder.
