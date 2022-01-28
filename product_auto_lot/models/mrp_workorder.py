@@ -291,3 +291,38 @@ class MrpWorkorder(models.Model):
             return res
 
         return True
+
+    def call_gen_final_lot(self):
+        self.generate_final_lot_code()
+
+    #     def _generate_final_lot_code(self):
+    #         for wo in self:
+    #             if wo.product_id.lot_abbv and '[USER_DEFINED' in wo.product_id.lot_abbv:
+    #                 return wo.action_view_generate_lot_wizard()
+    #             else:
+    # #                 gen_date = datetime.strptime(self.date_planned_start or fields.Datetime.now(), DEFAULT_SERVER_DATETIME_FORMAT)
+    #                 gen_date = self.date_planned_start or fields.Datetime.now()
+    #                 lot_name = wo.product_id.gen_lot_code(gen_date=gen_date)
+    #                 existing_lots = self.env['stock.production.lot'].search([('name', '=', lot_name), ('product_id', '=', wo.product_id.id)])
+    #
+    #                 if len(existing_lots.ids) > 0:
+    # #                     wo.final_lot_id = existing_lots.ids[0]
+    #                     wo.finished_lot_id = existing_lots.ids[0]
+    #                 else:
+    # #                     wo.final_lot_id = wo.env['stock.production.lot'].create({
+    #                     wo.finished_lot_id = wo.env['stock.production.lot'].create({
+    #                         'name': lot_name,
+    #                         'product_id': wo.product_id.id,
+    #                         'gen_date': gen_date,
+    #                     }).id
+    #                     wo.finished_lot_id.sudo()._use_gen_date()
+    #                     wo.final_lot_id.sudo()._use_gen_date()
+    #         return True
+
+    #     def write(self, vals):
+    #         if vals.get('finished_move_lot_ids') and self.state != 'done':
+    #             del vals['finished_move_lot_ids']
+    #             if not vals:
+    #                 return True
+    #         res = super(MrpWorkorder, self).write(vals)
+    #         return res
