@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_order_form_sale_order_pickup_dates">
+        <field name="name">sale.order.form.sale.pickup</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+        	<xpath expr="//group[@name='sale_shipping']" position="inside">
+	                <field name="pickup_date" />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_order_tree_sale_order_pickup_dates">
+        <field name="name">sale.order.tree.sale.pickup</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="before">
+                <field name="pickup_date" />
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,3 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_mrp_import_packages_wizard_user","mrp.import.packages.wizard all users","model_mrp_import_packages_wizard","stock.group_stock_user",1,1,1,1
-"access_mrp_workorder_confirmation_user","mrp.workorder.confirmation all users","model_mrp_workorder_confirmation","base.group_user",1,1,1,1

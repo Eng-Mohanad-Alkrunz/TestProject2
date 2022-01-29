@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+       <record id="view_production_lot_tree_with_quantity_at_location" model="ir.ui.view">
+        <field name="name">Search More Dialog</field>
+        <field name="model">stock.production.lot</field>
+        <field name="arch" type="xml">
+            <tree string="Lots with Quantity" default_order='product_id'>
+                <field name="name" />
+                <field name="product_id"/>
+                <field name="quantity_location"/>
+            </tree>
+        </field>
+    </record>
+
+        <record id="view_production_lot_form_gen_date" model="ir.ui.view">
+            <field name="name">stock.production.lot.form</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="product_expiry.view_move_form_expiry"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//group[1]" position="after">
+                    <group>
+                        <field name="gen_date" />
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_production_lot_create_date" model="ir.ui.view">
+                <field name="name">stock.production.lot.form.create</field>
+                <field name="model">stock.production.lot</field>
+                <field name="inherit_id" ref="stock.view_production_lot_form"/>
+                <field name="arch" type="xml">
+
+                    <xpath expr="//group[1]/group[1]/field[@name='ref']" position="after">
+                           <field name="create_date" />
+                    </xpath>
+                                
+                </field>
+        </record>
+    </data>
+</odoo>

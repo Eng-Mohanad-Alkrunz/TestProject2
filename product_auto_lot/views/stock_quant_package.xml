@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_quant_package_pallet_tree">
+        <field name="name">stock.quant.package.pallet.tree</field>
+        <field name="model">stock.quant.package</field>
+        <field name="inherit_id" ref="stock.view_quant_package_tree" />
+        <field eval="11" name="priority"/>
+        <field name="arch" type="xml">
+            <field name="display_name" position="after">
+                <field name="production_id" />
+                <field name="sale_id" />
+                <field name="delivery_id" />
+                <field name="shipping_date" />
+                <!-- <field name="supervisor"/> -->
+                <field name="note"/>
+            </field>
+
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_quant_package_pallet_form">
+        <field name="name">stock.quant.package.pallet.form</field>
+        <field name="model">stock.quant.package</field>
+        <field name="inherit_id" ref="stock.view_quant_package_form" />
+        <field eval="11" name="priority"/>
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field name="routing_id" />
+                 <field name="default_lot_code_id" />
+                <field name="sale_id" />
+                <field name="delivery_id" />
+                <field name="shipping_date" />
+                <!-- <field name="supervisor" /> -->
+                <field name="note"/>
+            </field>
+<!--            <xpath expr="//group[1]" position="after">
+           		<group>
+                       <group>
+                           <field name="start_date" />
+                       </group>
+                        <group>
+                           <field name="end_date" />
+                       </group>
+                   </group>
+             </xpath>-->
+            
+        </field>
+    </record>
+
+</odoo>

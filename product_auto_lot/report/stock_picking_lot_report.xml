@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_lot_code_sheet">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-foreach="o.pack_operation_product_ids" t-as="pack_operation">
+                        <t t-foreach="pack_operation.pack_lot_ids" t-as="lot_id">
+                            <div class="page">
+                            <!--<div class="oe_structure"/>-->
+                            <div class="row">
+                                <div class="col-xs-9 mt32" style="text-align:left;z-index:1000">
+                                    <h3>
+                                        <span t-field="pack_operation.product_id.name"/>
+                                    </h3>
+                            </div>
+                                <div class="col-xs-3 mt32" style="padding: 0px; margin:0px;">
+                                    <div style="text-align:center;">
+                                        <img style="margin-left: -40px;margin-right: 0px;" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;humanreadable=0&amp;width=%s&amp;height=%s' % ('Code128', pack_operation.product_id.default_code, 232, 60)"/>
+                                        <span t-esc="pack_operation.product_id.default_code"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 mt16" style="padding: 0px; margin:0px;">
+                                    <div style="text-align:center;">
+                                            <img style="margin-left: 0px;margin-right: 0px;" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;humanreadable=0&amp;width=%s&amp;height=%s' % ('Code128', str(lot_id.qty), 320, 60)"/>
+                                            <span t-esc="lot_id.qty"/> <span t-esc="pack_operation.product_uom_id.name"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 mt16" style="padding: 10px; margin:0px;">
+                                    <ul style="list-style-type: none;padding-left:0px;font-size:19px;width:120%;line-height:25px;letter-spacing: -1px">
+                                        <li style="letter-spacing: -2px">
+                                            Date of Receipt: <span t-esc="o.min_date"/>
+                                        </li>
+                                        <li>
+                                            Product Code: <span t-field="pack_operation.product_id.default_code"/>
+                                        </li>
+                                        <li>
+                                            Supplier: <span t-field="o.partner_id.name"/>
+                                        </li>
+<!--                                        <li>-->
+<!--                                            Quantity: <span t-esc="pack_operation.qty_done"/> <span t-esc="pack_operation.product_uom_id.name"/>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            Lot Number: <span t-esc="pack_operation.pack_lot_ids[0].lot_id.name"/>-->
+<!--                                        </li>-->
+<!--                                        <t t-if="lot_id.lot_id.use_date">-->
+<!--                                        <li>-->
+<!--                                            <strong>Best Before: <span t-esc="lot_id.lot_id.use_date" /></strong>-->
+<!--                                        </li>-->
+<!--                                        </t>-->
+                                        <li>
+                                            Printed by: <span t-esc="user.name"/>
+                                        </li>
+                                        <li>
+                                            Date Printed: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')" style="letter-spacing: -2px"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="mt4" style="padding-top: 0px;text-align:center;">
+                                            <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;humanreadable=0&amp;width=%s&amp;height=%s' % ('Code128', lot_id.lot_id.name, 500, 60)"/><br/>
+                                            <span t-esc="lot_id.lot_id.name"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        </t>
+                    </t>
+
+                </t>
+            </t>
+        </template>
+
+        <report
+                string="Lot Codes"
+                id="action_report_lot_code_sheet"
+                model="stock.picking"
+                report_type="qweb-pdf"
+                name="product_auto_lot.report_lot_code_sheet"
+                file="product_auto_lot.report_lot_code_sheet"
+                paperformat="product_auto_lot.paperformat_palletcode_landscape"
+            />
+    </data>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+            <record id="mrp_production_form_view_" model="ir.ui.view">
+            <field name="name">Manufacturing Pickings</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//notebook/page[2]" position="after">
+                    <page string="Related Pickings" groups="base.group_no_one">
+                        <field name="picking_ids" />
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    <record model="ir.ui.view" id="mrp_production_form_view_inherit_generate_pallet">
+        <field name="name">mrp.production.form.generate_pallet</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view" />
+        <field name="arch" type="xml">
+            <button name="button_mark_done" position="after">
+                <button name="action_create_packages" class="btn-primary" string="Create Packages" type="object" />
+                <button name="action_create_packages" string="Create Packages" type="object" attrs="{'invisible': [('state', 'not in', ['done'])]}" />
+            </button>
+            <!-- <button name="action_assign" position="replace">
+                <button name="action_assign" invisible="1" attrs="{'invisible': [('availability', 'in', ('assigned', 'none'))]}" string="Check availability" type="object" class="oe_highlight"/>
+            </button> -->
+            <field name="product_id" position="after">
+                <field name="palletize_ready" invisible="1" />
+            </field>
+            <xpath expr="//notebook/page[2]" position="after">
+                <page string="Packages">
+                    <field name="package_ids" options="{'no_create':True, 'no_open':True, 'no_delete':True}">
+                        <tree string="Packages" default_order='name asc' create="0" delete="0" editable="bottom">
+                            <!-- <field name="routing_id" invisible="1"/> -->
+                            <field name="pallet_number" />
+                            <field name="name"/>
+                            <field name="default_lot_code_id" />
+                           <!--  <field name="supervisor" domain="[('loca_ids.id', '=', routing_id)]" options="{'no_open': True, 'no_create': True}"/> -->
+                            <field name="note" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
