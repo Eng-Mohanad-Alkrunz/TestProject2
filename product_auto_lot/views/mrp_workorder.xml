@@ -89,7 +89,7 @@
     <record model="ir.ui.view" id="mrp_production_workcenter_form_view_inherit">
         <field name="name">mrp.production.work.order.form</field>
         <field name="model">mrp.workorder</field>
-        <field name="inherit_id" ref="mrp_workorder_multi_lot.mrp_production_workcenter_form_view_inherit_multi_lot1" />
+        <field name="inherit_id" ref="product_auto_lot.mrp_production_workcenter_form_view_inherit_multi_lot1" />
         <field name="arch" type="xml">
 
             <field name="finished_lot_id" position="after" >
